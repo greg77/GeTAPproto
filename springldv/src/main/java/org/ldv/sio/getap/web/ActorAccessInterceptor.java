@@ -17,18 +17,18 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class ActorAccessInterceptor extends HandlerInterceptorAdapter {
 	// private final Log logger = LogFactory.getLog(getClass());
 	private final Logger logger = LoggerFactory
-			.getLogger(ActorAccessInterceptor.class);
+	    .getLogger(ActorAccessInterceptor.class);
 
 	public boolean preHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler) throws Exception {
+	    HttpServletResponse response, Object handler) throws Exception {
 
 		String servletName = request.getRequestURI().split("/")[3];
 
 		System.out.println("TEST  INTERCEPTOR 2:" + request.getContextPath()
-				+ " servlet: " + servletName);
+		    + " servlet: " + servletName);
 
-		logger.info("TEST  INTERCEPTOR BIS:" + request.getContextPath()
-				+ " servlet: " + servletName);
+		logger.info("TEST  INTERCEPTOR with LOGGER !:" + request.getContextPath()
+		    + " servlet: " + servletName);
 
 		User userInSession = UtilSession.getUserInSession();
 
@@ -38,9 +38,8 @@ public class ActorAccessInterceptor extends HandlerInterceptorAdapter {
 		}
 
 		if (servletName.equals("voitures")
-				&& !userInSession.getRole().equals("prof")) {
-			response.sendRedirect(request.getContextPath()
-					+ "/app/hotels/index");
+		    && !userInSession.getRole().equals("prof")) {
+			response.sendRedirect(request.getContextPath() + "/app/hotels/index");
 			return false;
 		}
 
