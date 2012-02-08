@@ -19,6 +19,7 @@ public class ActorAccessInterceptor extends HandlerInterceptorAdapter {
 	private final Logger logger = LoggerFactory
 	    .getLogger(ActorAccessInterceptor.class);
 
+	@Override
 	public boolean preHandle(HttpServletRequest request,
 	    HttpServletResponse response, Object handler) throws Exception {
 
@@ -34,12 +35,6 @@ public class ActorAccessInterceptor extends HandlerInterceptorAdapter {
 
 		if (!servletName.equals("login") && null == userInSession) {
 			response.sendRedirect(request.getContextPath() + "/app/login/index");
-			return false;
-		}
-
-		if (servletName.equals("voitures")
-		    && !userInSession.getRole().equals("prof")) {
-			response.sendRedirect(request.getContextPath() + "/app/hotels/index");
 			return false;
 		}
 
