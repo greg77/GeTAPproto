@@ -1,7 +1,7 @@
 package org.ldv.sio.getap.app;
 
 /**
- * A hotel where users may book stays.
+ * A User with role
  */
 public class User {
 
@@ -15,7 +15,7 @@ public class User {
 	}
 
 	public User(Long id, String firstName, String lastName, String classe,
-			String role) {
+	    String role) {
 		this.id = id;
 		this.prenom = firstName;
 		this.nom = lastName;
