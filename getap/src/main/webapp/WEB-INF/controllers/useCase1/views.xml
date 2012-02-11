@@ -11,5 +11,11 @@
 		<put-attribute name="title" value="Main of Use Case 1" />
 		<put-attribute name="body" value="/WEB-INF/controllers/useCase1/index.jsp" />
 	</definition>
+
+  <definition name="useCase1/mesdctap" extends="standard-layout">
+    <put-attribute name="title" value="Mes demandes de consommation TAP" />
+    <put-attribute name="body" value="/WEB-INF/controllers/useCase1/mesdctap.jsp" />
+  </definition>
+
 	
 </tiles-definitions>
