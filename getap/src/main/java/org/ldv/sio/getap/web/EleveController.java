@@ -66,12 +66,13 @@ public class EleveController {
 		// valorise le bean de vue avec le dctap courant
 		dctap.setId(currentDctap.getId()); // en provenance d'un champ caché
 		dctap.setDateAction(currentDctap.getDateAction());
+		dctap.setProf(currentDctap.getProf());
 
 		return "eleve/edit";
 	}
 
 	@RequestMapping(value = "doedit", method = RequestMethod.POST)
-	public String editDCTAPById(DemandeConsoTempsAccPers dctap,
+	public String doeditDCTAPById(DemandeConsoTempsAccPers dctap,
 	    BindingResult bindResult, Model model) {
 		System.out.println("TEST :" + dctap.getId());
 		System.out.println("TEST :" + bindResult);
@@ -82,6 +83,7 @@ public class EleveController {
 
 		// valorise l'objet de la base à partir du bean de vue
 		databaseDctap.setDateAction(dctap.getDateAction());
+		databaseDctap.setProf(manager.getProfesseurById(dctap.getProf().getId()));
 
 		// DemandeConsoTempsAccPers currentDctaap = manager.getDCTAPById(Long
 		// .valueOf(id));

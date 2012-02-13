@@ -27,8 +27,8 @@ public class StubAuthLoginService implements IFHauthLoginService {
 		List<User> users = new ArrayList<User>();
 		users.add(new User(1L, "Dennis", "Ritchie", "", "admin"));
 		users.add(new User(2L, "Jean David", "Ichbiah", "ada", "prof-intervenant"));
-		users.add(new User(3L, "Guido ", "van Rossum ", "python",
-		    "prof-intervenant"));
+		users
+		    .add(new User(3L, "Guido ", "van Rossum", "python", "prof-intervenant"));
 		users.add(new User(4L, "Gérard", "Berry", "Esterel", "prof-intervenant"));
 		users.add(new User(5L, "Ada", "Lovelace", "", "prof-principal"));
 		users.add(new User(6L, "James", "Gosling", "TSTG", "eleve"));
