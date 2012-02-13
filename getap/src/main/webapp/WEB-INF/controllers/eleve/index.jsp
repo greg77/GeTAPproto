@@ -3,4 +3,4 @@
 
 <h1>Use Case 1</h1>
 <h2> page d'accueil du cas d'utilisation 1 </h2>
-<a href="<c:url value="/app/useCase1/mesdctap" />">voir mes demandes de consommation de TAP</a>
+<a href="<c:url value="/app/eleve/mesdctap" />">voir mes demandes de consommation de TAP</a>

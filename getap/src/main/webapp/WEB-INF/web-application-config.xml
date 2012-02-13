@@ -24,7 +24,7 @@
 		<property name="definitions">
 			<list>
 				<value>/WEB-INF/layouts/layouts.xml</value>
-				<value>/WEB-INF/controllers/useCase1/views.xml</value>
+				<value>/WEB-INF/controllers/eleve/views.xml</value>
 				<value>/WEB-INF/controllers/useCase2/views.xml</value>
 				<value>/WEB-INF/controllers/login/views.xml</value>
 				<value>/WEB-INF/controllers/hotels/views.xml</value>
