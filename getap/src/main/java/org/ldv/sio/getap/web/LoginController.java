@@ -80,7 +80,7 @@ public class LoginController {
 	 * @return Success view
 	 */
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
-	public String out(UserLoginCriteria userLoginCriteria) {
+	public String logout(UserLoginCriteria userLoginCriteria) {
 		UtilSession.setUserInSession(null);
 		return "login/index";
 	}
