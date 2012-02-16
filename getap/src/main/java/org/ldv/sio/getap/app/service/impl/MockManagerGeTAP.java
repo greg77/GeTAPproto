@@ -18,7 +18,7 @@ public class MockManagerGeTAP implements IFManagerGeTAP {
 		listeProfs = new ArrayList<User>();
 		listeProfs.add(new User(2L, "Jean David", "Ichbiah", "ada",
 		    "prof-intervenant"));
-		listeProfs.add(new User(3L, "Guido ", "van Rossum ", "python",
+		listeProfs.add(new User(3L, "Guido ", "van Rossum", "python",
 		    "prof-intervenant"));
 		listeProfs.add(new User(4L, "Gérard", "Berry", "Esterel",
 		    "prof-intervenant"));
