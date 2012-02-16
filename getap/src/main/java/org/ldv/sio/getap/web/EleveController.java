@@ -1,6 +1,7 @@
 package org.ldv.sio.getap.web;
 
 import org.ldv.sio.getap.app.DemandeConsoTempsAccPers;
+import org.ldv.sio.getap.app.FormDemandeConsoTempsAccPers;
 import org.ldv.sio.getap.app.User;
 import org.ldv.sio.getap.app.service.IFManagerGeTAP;
 import org.ldv.sio.getap.utils.UtilSession;
@@ -58,7 +59,7 @@ public class EleveController {
 
 	@RequestMapping(value = "edit", method = RequestMethod.GET)
 	public String editDCTAPById(@RequestParam("id") String id,
-	    DemandeConsoTempsAccPers dctap, Model model) {
+	    FormDemandeConsoTempsAccPers dctap, Model model) {
 
 		DemandeConsoTempsAccPers currentDctap = manager.getDCTAPById(Long
 		    .valueOf(id));
@@ -66,15 +67,18 @@ public class EleveController {
 		// valorise le bean de vue avec le dctap courant
 		dctap.setId(currentDctap.getId()); // en provenance d'un champ caché
 		dctap.setDateAction(currentDctap.getDateAction());
-		dctap.setProf(currentDctap.getProf());
+		dctap.setProfId(currentDctap.getProf().getId());
+		dctap.setProfNom(currentDctap.getProf().getNom());
 
 		return "eleve/edit";
 	}
 
 	@RequestMapping(value = "doedit", method = RequestMethod.POST)
-	public String doeditDCTAPById(DemandeConsoTempsAccPers dctap,
+	public String doeditDCTAPById(FormDemandeConsoTempsAccPers dctap,
 	    BindingResult bindResult, Model model) {
 		System.out.println("TEST :" + dctap.getId());
+		System.out.println("TEST prof :" + dctap.getProfId() + ":"
+		    + dctap.getProfNom());
 		System.out.println("TEST :" + bindResult);
 		System.out.println("TEST :" + model);
 
@@ -83,7 +87,8 @@ public class EleveController {
 
 		// valorise l'objet de la base à partir du bean de vue
 		databaseDctap.setDateAction(dctap.getDateAction());
-		databaseDctap.setProf(manager.getProfesseurById(dctap.getProf().getId()));
+		databaseDctap.setProf(manager.getProfesseurById(dctap.getProfId()));
+		// databaseDctap.setAccPers(manager.getAPById(dctap.getAccPers().getId()));
 
 		// DemandeConsoTempsAccPers currentDctaap = manager.getDCTAPById(Long
 		// .valueOf(id));
@@ -92,6 +97,9 @@ public class EleveController {
 		// manager.editDCTAPById(Long.valueOf(id), eleve)) {
 
 		// return "redirect:/app/eleve/mesdctap";
-		return "eleve/doedit";
+		if (bindResult.hasErrors())
+			return "eleve/edit";
+		else
+			return "eleve/doedit";
 	}
 }

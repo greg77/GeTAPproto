@@ -8,7 +8,7 @@ public class DemandeConsoTempsAccPers {
 	private java.sql.Date dateAction;
 	private Integer minutes;
 	private User prof;
-	private Integer idAccPers;
+	private AccPersonalise accPers;
 	private Integer idEleve;
 	private int etat;
 
@@ -17,14 +17,15 @@ public class DemandeConsoTempsAccPers {
 	}
 
 	public DemandeConsoTempsAccPers(Long id, Integer anneeScolaire, Date date,
-	    Integer minutes, User prof, Integer idAccPers, Integer idEleve, int etat) {
+	    Integer minutes, User prof, AccPersonalise accPers, Integer idEleve,
+	    int etat) {
 		super();
 		this.id = id;
 		this.anneeScolaire = anneeScolaire;
 		this.dateAction = date;
 		this.minutes = minutes;
 		this.prof = prof;
-		this.idAccPers = idAccPers;
+		this.accPers = accPers;
 		this.idEleve = idEleve;
 		this.etat = etat;
 	}
@@ -69,12 +70,12 @@ public class DemandeConsoTempsAccPers {
 		this.prof = prof;
 	}
 
-	public Integer getIdAccPers() {
-		return idAccPers;
+	public AccPersonalise getAccPers() {
+		return accPers;
 	}
 
-	public void setIdAccPers(Integer idAccPers) {
-		this.idAccPers = idAccPers;
+	public void setAccPers(AccPersonalise accPers) {
+		this.accPers = accPers;
 	}
 
 	public Integer getIdEleve() {

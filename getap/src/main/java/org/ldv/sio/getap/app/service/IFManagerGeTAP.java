@@ -2,6 +2,7 @@ package org.ldv.sio.getap.app.service;
 
 import java.util.List;
 
+import org.ldv.sio.getap.app.AccPersonalise;
 import org.ldv.sio.getap.app.DemandeConsoTempsAccPers;
 import org.ldv.sio.getap.app.User;
 
@@ -28,4 +29,6 @@ public interface IFManagerGeTAP {
 	public boolean editDCTAPById(Long valueOf, User user);
 
 	public DemandeConsoTempsAccPers getDCTAPById(Long valueOf);
+
+	public AccPersonalise getAPById(int id);
 }

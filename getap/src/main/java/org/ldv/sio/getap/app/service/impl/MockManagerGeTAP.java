@@ -3,6 +3,7 @@ package org.ldv.sio.getap.app.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.ldv.sio.getap.app.AccPersonalise;
 import org.ldv.sio.getap.app.DemandeConsoTempsAccPers;
 import org.ldv.sio.getap.app.User;
 import org.ldv.sio.getap.app.service.IFManagerGeTAP;
@@ -10,6 +11,10 @@ import org.springframework.stereotype.Service;
 
 @Service("mockServiceManager")
 public class MockManagerGeTAP implements IFManagerGeTAP {
+
+	static AccPersonalise[] lesAPs = { new AccPersonalise(1, "SOS Matières"),
+	    new AccPersonalise(2, "Sortie Théatre"),
+	    new AccPersonalise(3, "Methodologie de travail") };
 
 	private List<DemandeConsoTempsAccPers> listeDCTAP;
 	private List<User> listeProfs;
@@ -28,13 +33,19 @@ public class MockManagerGeTAP implements IFManagerGeTAP {
 
 		listeDCTAP = new ArrayList<DemandeConsoTempsAccPers>();
 		listeDCTAP.add(new DemandeConsoTempsAccPers(100L, 2011, java.sql.Date
-		    .valueOf("2011-01-21"), 60, getProfesseurById(2L), 1, 2, 0));
+		    .valueOf("2011-01-21"), 60, getProfesseurById(2L), getAPById(1), 2, 0));
 		listeDCTAP.add(new DemandeConsoTempsAccPers(101L, 2011, java.sql.Date
-		    .valueOf("2011-01-22"), 60, getProfesseurById(2L), 1, 2, 0));
+		    .valueOf("2011-01-22"), 60, getProfesseurById(2L), getAPById(2), 2, 0));
 		listeDCTAP.add(new DemandeConsoTempsAccPers(102L, 2011, java.sql.Date
-		    .valueOf("2011-01-23"), 120, getProfesseurById(5L), 1, 2, 0));
+		    .valueOf("2011-01-23"), 120, getProfesseurById(5L), getAPById(2), 2, 0));
 		listeDCTAP.add(new DemandeConsoTempsAccPers(102L, 2011, java.sql.Date
-		    .valueOf("2011-01-24"), 120, getProfesseurById(10L), 1, 2, 0));
+		    .valueOf("2011-01-24"), 120, getProfesseurById(10L), getAPById(0), 2, 0));
+	}
+
+	public AccPersonalise getAPById(int id) {
+		if (id >= 0 && id < lesAPs.length)
+			return lesAPs[id];
+		return null;
 	}
 
 	public List<DemandeConsoTempsAccPers> getAllDCTAP(User eleve) {

@@ -4,7 +4,7 @@
 
 <h1>Edition</h1>
 
-<form:form modelAttribute="demandeConsoTempsAccPers" action="doedit"
+<form:form modelAttribute="formDemandeConsoTempsAccPers" action="doedit"
   method="post">
   <form:errors path="*" cssClass="errors" />
 
@@ -17,13 +17,13 @@
         </div>
       </div>
       <div class="form-row">
-        <label for="prof.nom">Professeur :</label>
+        <label for="profNom">Professeur :</label>
         <div class="input">
-          <form:input path="prof.nom" />
+          <form:input path="profNom" />
         </div>
-        <label for="prof.id">id prof (pour info-debug) :</label>
+        <label for="profId">id prof (pour info-debug) :</label>
         <div class="input">
-          <form:input path="prof.id" />
+          <form:input path="profId" />
         </div>
       </div>
 
