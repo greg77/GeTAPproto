@@ -37,7 +37,8 @@ public class ActorAccessInterceptor extends HandlerInterceptorAdapter {
 			response.sendRedirect(request.getContextPath() + "/app/login/index");
 			return false;
 		}
-
+		System.out.println("TEST  role :"
+		    + ((userInSession == null) ? "pas de rôle" : userInSession.getRole()));
 		return true;
 	}
 }
